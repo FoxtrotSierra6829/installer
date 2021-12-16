@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     env:
       MASTER_PRE_RELEASE_ID: 36189658
       MASTER_PRE_RELEASE_TAG: vmaster
@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Install system requirements
-        run: sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib && sudo dpkg --add-architecture i386 && wget -nc https://dl.winehq.org/wine-builds/winehq.key && sudo apt-key add winehq.key && sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main' && sudo apt update && sudo apt-get wine-stable= 6.0.2~focal-1 && sudo apt install --install-recommends winehq-stable
+        run: sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install -y wine32 wine64
 
       - name: Package installer
         run: |
