@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Install system requirements
-        run: sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib && sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32
+        run: sudo apt-get install --no-install-recommends -y gcc-multilib g++-multilib && sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt install wine-stable wine64 wine32:i386 wine64
 
       - name: Package installer
         run: |
