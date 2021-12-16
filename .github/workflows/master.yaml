@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Install system requirements
-        run: sudo dpkg --add-architecture i386 && sudo apt-get update
+        run: sudo dpkg --add-architecture i386 && sudo apt-get update && lsb_release -a
 
       - name: Package installer
         run: |
